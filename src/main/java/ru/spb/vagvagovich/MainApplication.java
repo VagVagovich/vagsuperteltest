@@ -13,11 +13,10 @@ public class MainApplication {
 
     /**
      * Стартовый метод приложения
-     * @param argv - аргуметны командной строки
+     * @param args - аргуметны командной строки
      */
     public static void main(String[] args) {
         //Здесь можно поработать с аргументами при необходимости
-        
         MainFrame mainWindow = new MainFrame();
         mainWindow.setVisible(true);
     }

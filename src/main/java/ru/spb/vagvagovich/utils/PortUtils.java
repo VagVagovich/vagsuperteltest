@@ -37,6 +37,12 @@ public class PortUtils {
         return result.toArray(new Integer[result.size()]);
     }
     
+    /**
+     * Получить декартово произведение массива строк(уникальные упорядоченные
+     * группы элементов полученных массивов чисел в строках)
+     * @param strings - исходные строки
+     * @return уникальные упорядоченные группы элементов 
+     */
     public static Integer[][] convertStringArraysUnicGroups(String[] strings) {
         List<SortedSet<Integer>> preparedData = prepareStringArrayToWork(strings);
         int allSize = 1;
@@ -56,6 +62,11 @@ public class PortUtils {
         return res;
     }
     
+    /**
+     * Подготовить строки с числами к дальнейшей работе
+     * @param strings - подготавливаемаые строки
+     * @return отсортированный Set с числами для каждой строки
+     */
     private static List<SortedSet<Integer>> prepareStringArrayToWork(String[] strings) {
         List<SortedSet<Integer>> res = new ArrayList<SortedSet<Integer>>();
         for (String str:strings) {
@@ -64,6 +75,11 @@ public class PortUtils {
         return res;
     }
     
+    /**
+     * Подготовить строку с числами к дальнейшей работе
+     * @param str - подготавливаемая строка
+     * @return отсортированный Set с числами
+     */
     private static SortedSet<Integer> prepareStringToWork(String str) {
         SortedSet<Integer> collection = new TreeSet<Integer>();
         for (String onePart:str.split(",")) {
