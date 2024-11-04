@@ -49,6 +49,19 @@ public class ArrayConverterUtilsTest {
      * Тест исходной конвертации строки в массив строк с числами
      */
     @Test
+    public void testConvertManyRowInputStringWithSpace() {
+        String[] res = ArrayConverterUtils.convertInputStringToStringArray("1, 2, 3\n2\n3");
+        assertNotNull(res);
+        assertTrue(res.length==3);
+        assertEquals(res[0], "1,2,3");
+        assertEquals(res[1], "2");
+        assertEquals(res[2], "3");
+    }
+    
+    /**
+     * Тест исходной конвертации строки в массив строк с числами
+     */
+    @Test
     public void testConvertDefaultInputString() {
         String[] res = ArrayConverterUtils.convertInputStringToStringArray("1,3-5\n2\n3-4");
         assertNotNull(res);

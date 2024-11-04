@@ -14,7 +14,7 @@ public class ArrayConverterUtils {
         if (input == null || input.isEmpty()) {
             return new String[0];
         }
-        return input.split("\n");
+        return input.replace(" ", "").split("\n");
     }
     
     /**
