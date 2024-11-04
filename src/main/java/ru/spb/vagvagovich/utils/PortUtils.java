@@ -23,6 +23,11 @@ public class PortUtils {
         return input.split("/n");
     }
     
+    /**
+     * Сконвертировать массив строк с числами в массив чисел
+     * @param strings - исходный массив строк
+     * @return массив чисел
+     */
     public static Integer[] convertStringArraysToIntArray(String[] strings) {
         SortedSet<Integer> result = new TreeSet<Integer>();
         List<SortedSet<Integer>> preparedData = prepareStringArrayToWork(strings);
@@ -65,7 +70,7 @@ public class PortUtils {
             if (onePart.contains("-")) {
                 int index = onePart.indexOf('-');
                 int min = Integer.parseInt(onePart.substring(0, index));
-                int max = Integer.parseInt(onePart.substring(index));
+                int max = Integer.parseInt(onePart.substring(index+1));
                 for (int i=min;i<=max;i++) {
                     collection.add(i);
                 }
@@ -77,72 +82,11 @@ public class PortUtils {
         return collection;
     }
     
-//    private static int[] prepareStringToWork(String str) {
-//        int firstNumber = -1;
-//        int secondNumber = -1;
-//        StringBuilder firstNumberInStr = new StringBuilder();
-//        StringBuilder secondNumberInStr = new StringBuilder();
-//        for (int i = 0; i < str.length(); i++) {
-//            if (str.charAt(i) == ' ') {
-//                // Если стоит пробел, то символ пропускается
-//                continue;
-//            }
-//            if ((str.charAt(i) >= '0') && (str.charAt(i) <= '9')) {
-//                // Если у нас цифра
-//                if (firstNumber < 0) {
-//                    firstNumberInStr.append(str.charAt(i));
-//                } else {
-//                    secondNumberInStr.append(str.charAt(i));
-//                }
-//                continue;
-//            }
-//            if (str.charAt(i) == '-') {
-//                if ((firstNumberInStr.length() == 0) || (secondNumberInStr.length() > 0)) {
-//                    // мы работаем лишь с натуральными числами
-//                    return null;
-//                }
-//                firstNumber = Integer.parseInt(firstNumberInStr.toString());
-//                firstNumberInStr = new StringBuilder();
-//                continue;
-//            }
-//            if (str.charAt(i) == ',') {
-//                if ((firstNumber < 0) && (firstNumberInStr.length() == 0)) {
-//                    // не может быть пустых интервалов
-//                    return null;
-//                }
-//                if (secondNumberInStr.length() > 0) {
-//                    secondNumber = Integer.parseInt(secondNumberInStr.toString());
-//                    secondNumberInStr = new StringBuilder();
-//                } else {
-//                    if (firstNumberInStr.length() == 0) {
-//                        return null;
-//                    }
-//                    firstNumber = Integer.parseInt(firstNumberInStr.toString());
-//                    secondNumber = firstNumber;
-//                    firstNumberInStr = new StringBuilder();
-//                }
-//                IntegerInterval ii = new IntegerInterval(firstNumber, secondNumber);
-//                resultInterval.include(ii);
-//                firstNumber = secondNumber = -1;
-//                continue;
-//            }
-//            return null;
-//        }
-//        if ((firstNumber < 0) && (firstNumberInStr.length() == 0)) {
-//            return null;
-//        }
-//        if (secondNumberInStr.length() > 0) {
-//            secondNumber = Integer.parseInt(secondNumberInStr.toString());
-//        } else {
-//            if (firstNumberInStr.length() == 0) {
-//                return null;
-//            }
-//            firstNumber = Integer.parseInt(firstNumberInStr.toString());
-//            secondNumber = firstNumber;
-//        }
-//        if (firstNumber > secondNumber) {
-//            return null;
-//        }
-//    }
-
+    /**
+     * Неиспользуемый конструктор для утилитного класса
+     */
+    private PortUtils() {
+        //nothing
+    }
+    
 }
