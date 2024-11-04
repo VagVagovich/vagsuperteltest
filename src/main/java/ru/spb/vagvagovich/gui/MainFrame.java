@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 
 import ru.spb.vagvagovich.MainApplication;
 import ru.spb.vagvagovich.model.Port;
+import ru.spb.vagvagovich.utils.ArrayConverterUtils;
 import ru.spb.vagvagovich.utils.PortUtils;
 
 /**
@@ -43,7 +44,7 @@ public class MainFrame extends JFrame{
         
         createAndSetPanels();
         pack();
-        setResizable(false);
+//        setResizable(false);
         
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -61,6 +62,7 @@ public class MainFrame extends JFrame{
         outputArraysArea.setEditable(false);
         outputArraysArea.setToolTipText("Последовательность всех чисел из массива");
         outputDecartArea.setEditable(false);
+        outputDecartArea.setLineWrap(true);
         outputDecartArea.setToolTipText("Декартово произведение чисел из массива");
         culcButton.addActionListener(e -> reculc());
         
@@ -95,8 +97,10 @@ public class MainFrame extends JFrame{
      */
     private void reculc() {
         Port port = Port.createPortFromString(inputTextArea.getText());
-        outputArraysArea.setText(PortUtils.convertStringArraysToIntArray(port.getIndexes()).toString());
-        outputDecartArea.setText(PortUtils.convertStringArraysUnicGroups(port.getIndexes()).toString());
+        outputArraysArea.setText(ArrayConverterUtils.convertIntegerArraytoString(
+                PortUtils.convertStringArraysToIntArray(port.getIndexes())));
+        outputDecartArea.setText(ArrayConverterUtils.convertIntegerArraytoString(
+                PortUtils.convertStringArraysUnicGroups(port.getIndexes())));
     }
 
 }

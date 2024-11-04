@@ -1,6 +1,6 @@
 package ru.spb.vagvagovich.model;
 
-import ru.spb.vagvagovich.utils.PortUtils;
+import ru.spb.vagvagovich.utils.ArrayConverterUtils;
 
 /**
  * Класс хранения данных о числах
@@ -18,7 +18,7 @@ public class Port {
      * @return элемент типа Port
      */
     public static Port createPortFromString(String input) {
-        return new Port(PortUtils.convertInputStringToStringArray(input));
+        return new Port(ArrayConverterUtils.convertInputStringToStringArray(input));
     }
     
     /**

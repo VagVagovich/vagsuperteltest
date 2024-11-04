@@ -12,18 +12,6 @@ import java.util.TreeSet;
 public class PortUtils {
     
     /**
-     * Сконвертировать входную строку в массив строк
-     * @param input - входная строка
-     * @return массив строк
-     */
-    public static String[] convertInputStringToStringArray(String input) {
-        if (input == null || input.isEmpty()) {
-            return new String[0];
-        }
-        return input.split("/n");
-    }
-    
-    /**
      * Сконвертировать массив строк с числами в массив чисел
      * @param strings - исходный массив строк
      * @return массив чисел
