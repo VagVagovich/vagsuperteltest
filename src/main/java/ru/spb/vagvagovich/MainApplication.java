@@ -7,13 +7,12 @@ import ru.spb.vagvagovich.gui.ExitDialog;
 import ru.spb.vagvagovich.gui.MainFrame;
 
 /**
- * Запуск программы
+ * Само приложение
  */
 public class MainApplication {
 
     /**
      * Стартовый метод приложения
-     * 
      * @param argv - аргуметны командной строки
      */
     public static void main(String[] args) {

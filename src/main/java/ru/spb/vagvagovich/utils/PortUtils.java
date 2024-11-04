@@ -7,6 +7,7 @@ import java.util.TreeSet;
 
 /**
  * Утилиты для конвертации и работы с данными из класса Port
+ * @author VagVagovich
  */
 public class PortUtils {
     
@@ -28,7 +29,7 @@ public class PortUtils {
         for(SortedSet<Integer> oneStringData:preparedData) {
             result.addAll(oneStringData);
         }
-        return (Integer[]) result.toArray();
+        return result.toArray(new Integer[result.size()]);
     }
     
     public static Integer[][] convertStringArraysUnicGroups(String[] strings) {
